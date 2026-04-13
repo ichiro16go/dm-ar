@@ -1,0 +1,42 @@
+# YOLOv8 OBB Training Configuration
+
+path: ../data/processed  # dataset root
+train: images
+val: images
+test: images
+
+nc: 1  # number of classes (カード全体を1クラスとして検出)
+names: ['card']  # class names
+
+# Model architecture
+model: yolov8l-obb  # YOLOv8 Large OBB model
+
+# Training parameters
+epochs: 100
+patience: 20  # Early stopping
+batch: 16
+imgsz: 640
+device: 0  # GPU device ID (0 = GPU, CPU = cpu)
+
+# Optimization
+optimizer: SGD
+lr0: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+
+# Augmentation
+hsv_h: 0.015  # HSV-Hue augmentation
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 45  # Rotation augmentation
+translate: 0.1
+scale: 0.5
+flipud: 0.5  # Flip upside-down
+fliplr: 0.5  # Flip left-right
+mosaic: 1.0
+mixup: 0.0
+
+# Save/Logging
+save: true
+save_period: 10
+plots: true
